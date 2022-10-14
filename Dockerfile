@@ -1,10 +1,11 @@
-FROM amazonlinux
+FROM bluedata/centos7
 
 RUN yum -y update
-RUN yum -y install httpd
+RUN yum -y install sudo yum install -y python3
+RUN mkdir ~/pyapp
+RUN pip3 install requests bs4 
 
-COPY . /var/www/html/index.html
-CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
+ADD ./pyapp/ ~/pyapp
+CMD [ "/usr/bin/python3","/~/pyapp/main.py" ]
 
 EXPOSE 80
-

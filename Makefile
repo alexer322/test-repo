@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 DOCKER_IMAGE ?= ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}
-DOCKER_IMAGE_NAME ?= myweb
+DOCKER_IMAGE_NAME ?= py1
 DOCKER_IMAGE_TAG ?= v1
 
 .PHONY: all_deploy docker_build docker_run docker_stop docker_rm docker_images docker_ps delete whatch 
@@ -31,7 +31,7 @@ docker_run:
 	${DOCKER_IMAGE}
 
 docker_stop:
-	docker stop $$(docker ps -q --filter ancestor=${DOCKER_IMAGE})	 
+	docker stop $$(docker ps -q --filter ancestor=${DOCKER_IMAGE})
 
 docker_rm:
 	docker rmi --force $$(docker images -q ${DOCKER_IMAGE} | uniq)
