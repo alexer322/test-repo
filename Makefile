@@ -1,4 +1,4 @@
-''SHELL :=/bin/bash
+SHELL : =/bin/bash
 
 DOCKER_IMAGE ?= ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}
 DOCKER_IMAGE_NAME ?= myweb
